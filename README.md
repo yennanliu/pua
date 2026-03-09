@@ -144,14 +144,33 @@
 
 ## 安装
 
+### Claude Code
+
 ```bash
-claude plugin install pua@tanweai-security
+# 方式一：添加 marketplace 后安装
+claude plugin marketplace add tanweai/pua
+claude plugin install pua@pua-skills
+
+# 方式二：手动安装
+git clone https://github.com/tanweai/pua.git ~/.claude/plugins/pua
 ```
 
-或直接从仓库安装：
+### OpenAI Codex CLI
+
+Codex CLI 使用相同的 Agent Skills 开放标准（SKILL.md），直接复制即可：
+
 ```bash
-claude plugin marketplace add tanweai/pua
-claude plugin install pua
+mkdir -p ~/.codex/skills/pua-debugging
+curl -o ~/.codex/skills/pua-debugging/SKILL.md \
+  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua-debugging/SKILL.md
+```
+
+项目级安装（仅当前项目生效）：
+
+```bash
+mkdir -p .agents/skills/pua-debugging
+curl -o .agents/skills/pua-debugging/SKILL.md \
+  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua-debugging/SKILL.md
 ```
 
 ## 搭配使用

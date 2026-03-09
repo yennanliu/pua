@@ -238,9 +238,9 @@ export default function App() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">pua</h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground leading-relaxed">{L(t.heroSub)}</p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <CopyBtn text="claude plugin install pua@tanweai-security" />
-            <span className="text-xs text-muted-foreground">or</span>
-            <CopyBtn text="/pua" />
+            <CopyBtn text="claude plugin marketplace add tanweai/pua" />
+            <span className="text-xs text-muted-foreground">&amp;&amp;</span>
+            <CopyBtn text="claude plugin install pua@pua-skills" />
           </div>
         </div>
       </section>
@@ -544,14 +544,27 @@ export default function App() {
       {/* Usage */}
       <Sec>
         <Hd title={L(t.usageTitle)} desc="" />
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-3">
           <Card className="bg-card">
-            <CardHeader><Badge variant="secondary" className="w-fit text-[10px] uppercase tracking-widest">Auto</Badge><CardTitle className="text-base">{lang === "zh" ? "自动触发" : "Auto Trigger"}</CardTitle></CardHeader>
-            <CardContent className="text-sm text-muted-foreground">{lang === "zh" ? "连续失败 2+ 次、说 \"I cannot\"、建议手动、归咎环境时自动激活。" : "Activates on 2+ failures, \"I cannot\", manual suggestions, or unverified environment blame."}</CardContent>
+            <CardHeader><Badge variant="secondary" className="w-fit text-[10px] uppercase tracking-widest">Claude Code</Badge><CardTitle className="text-base">{lang === "zh" ? "Claude Code 安装" : "Claude Code Install"}</CardTitle></CardHeader>
+            <CardContent>
+              <code className="block rounded-md border border-border bg-secondary/50 px-3 py-1.5 font-mono text-xs leading-relaxed whitespace-pre-wrap">claude plugin marketplace add tanweai/pua{"\n"}claude plugin install pua@pua-skills</code>
+              <p className="mt-3 text-xs text-muted-foreground">{lang === "zh" ? "自动触发：连续失败 2+ 次、说 \"I cannot\"、甩锅时激活。手动触发：输入 /pua" : "Auto: 2+ failures, \"I cannot\", blame-shifting. Manual: type /pua"}</p>
+            </CardContent>
           </Card>
           <Card className="bg-card">
-            <CardHeader><Badge variant="secondary" className="w-fit text-[10px] uppercase tracking-widest">Manual</Badge><CardTitle className="text-base">{lang === "zh" ? "手动触发" : "Manual"}</CardTitle></CardHeader>
-            <CardContent><p className="mb-3 text-sm text-muted-foreground">{lang === "zh" ? "对表现不满时输入：" : "When frustrated, type:"}</p><code className="rounded-md border border-border bg-secondary/50 px-3 py-1.5 font-mono text-sm">/pua</code></CardContent>
+            <CardHeader><Badge variant="secondary" className="w-fit text-[10px] uppercase tracking-widest">Codex CLI</Badge><CardTitle className="text-base">{lang === "zh" ? "OpenAI Codex CLI" : "OpenAI Codex CLI"}</CardTitle></CardHeader>
+            <CardContent>
+              <code className="block rounded-md border border-border bg-secondary/50 px-3 py-1.5 font-mono text-xs leading-relaxed whitespace-pre-wrap">mkdir -p ~/.codex/skills/pua-debugging{"\n"}curl -o ~/.codex/skills/pua-debugging/SKILL.md \{"\n"}  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua-debugging/SKILL.md</code>
+              <p className="mt-3 text-xs text-muted-foreground">{lang === "zh" ? "Codex CLI 使用相同的 Agent Skills 开放标准（SKILL.md），零修改兼容。" : "Codex CLI uses the same Agent Skills open standard (SKILL.md). Zero modifications needed."}</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-card">
+            <CardHeader><Badge variant="secondary" className="w-fit text-[10px] uppercase tracking-widest">{lang === "zh" ? "通用" : "Universal"}</Badge><CardTitle className="text-base">{lang === "zh" ? "项目级安装" : "Project-Level"}</CardTitle></CardHeader>
+            <CardContent>
+              <code className="block rounded-md border border-border bg-secondary/50 px-3 py-1.5 font-mono text-xs leading-relaxed whitespace-pre-wrap">mkdir -p .agents/skills/pua-debugging{"\n"}curl -o .agents/skills/pua-debugging/SKILL.md \{"\n"}  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua-debugging/SKILL.md</code>
+              <p className="mt-3 text-xs text-muted-foreground">{lang === "zh" ? "放入项目 .agents/ 目录，仅当前项目生效。Claude Code 和 Codex CLI 均支持。" : "Place in project .agents/ directory. Works with both Claude Code and Codex CLI."}</p>
+            </CardContent>
           </Card>
         </div>
       </Sec>
