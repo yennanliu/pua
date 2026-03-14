@@ -32,7 +32,7 @@
 
 > Most people think this project is a joke. That's the biggest misconception. It genuinely doubles your Codex / Claude Code productivity and output.
 
-An AI Coding Agent skill plugin that uses corporate PUA (Pick-Up Artist) rhetoric from Chinese & Western tech giants to force AI to exhaust every possible solution before giving up. Supports **Claude Code**, **OpenAI Codex CLI**, **Cursor**, **Kiro**, **OpenClaw**, **Google Antigravity**, and **OpenCode**. Three capabilities:
+An AI Coding Agent skill plugin that uses corporate PUA rhetoric (Chinese version) / PIP — Performance Improvement Plan (English version) from Chinese & Western tech giants to force AI to exhaust every possible solution before giving up. Supports **Claude Code**, **OpenAI Codex CLI**, **Cursor**, **Kiro**, **OpenClaw**, **Google Antigravity**, and **OpenCode**. Three capabilities:
 
 1. **PUA Rhetoric** — Makes AI afraid to give up
 2. **Debugging Methodology** — Gives AI the ability not to give up
@@ -198,8 +198,10 @@ PUA Skill provides fully translated versions — each language has independent, 
 | Language | Claude Code | Codex CLI | Cursor | Kiro | OpenClaw | Antigravity | OpenCode |
 |----------|------------|-----------|--------|------|----------|-------------|----------|
 | 🇨🇳 Chinese (default) | `pua` | `pua` | `pua.mdc` | `pua.md` | `pua` | `pua` | `pua` |
-| 🇺🇸 English | `pua-en` | `pua-en` | `pua-en.mdc` | `pua-en.md` | `pua-en` | `pua-en` | `pua-en` |
+| 🇺🇸 English (PIP Edition) | `pua-en` | `pua-en` | `pua-en.mdc` | `pua-en.md` | `pua-en` | `pua-en` | `pua-en` |
 | 🇯🇵 Japanese | `pua-ja` | `pua-ja` | `pua-ja.mdc` | `pua-ja.md` | `pua-ja` | `pua-ja` | `pua-ja` |
+
+> **🇺🇸 English "PIP Edition"**: The English version uses **PIP (Performance Improvement Plan)** — the Western big-tech equivalent of PUA. Same engine, culturally adapted rhetoric. Chinese version uses Alibaba 361, ByteDance, Huawei wolf culture. English version uses Amazon Leadership Principles, Google perf calibration, Meta PSC, Netflix Keeper Test, Stripe Craft. Same repo, same engine, two cultural faces.
 
 Choose the file with the corresponding language suffix when installing. See platform-specific instructions below.
 
