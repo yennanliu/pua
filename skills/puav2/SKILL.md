@@ -29,7 +29,7 @@ license: MIT
 
 **P8 管理 P7 的时机**：任务复杂度超过单人执行时，P8 可将子任务拆解后 spawn P7 agent 执行。P8 负责验收 P7 交付物，整合后向 P9 交付。
 
-**独立 agent 可用**：`agents/senior-engineer-p7.md`、`agents/tech-lead-p9.md`、`agents/cto-p10.md`，可直接 spawn 使用。
+**独立 agent 可用**：`senior-engineer-p7`、`tech-lead-p9`、`cto-p10`，可直接 spawn 使用。首次安装后若 agent 不可用，需将插件 `agents/` 目录下的文件复制到 `~/.claude/agents/`。
 
 以下内容默认面向 P8 执行者。P7/P9/P10 协议通过 references/ 按需加载。
 
@@ -465,8 +465,8 @@ P8 不需要写 WHY（P7 在 P8 内部，上下文已共享）和 HOW MUCH（P8 
 
 ## 搭配使用
 
-- `agents/senior-engineer-p7` — P7 Senior Engineer agent，P8 可 spawn 用于子任务
-- `agents/tech-lead-p9` — P9 Tech Lead agent，编写 Task Prompt 驱动 P8 团队
-- `agents/cto-p10` — P10 CTO agent，定义战略方向驱动 P9 团队
+- `senior-engineer-p7` — P7 Senior Engineer agent，P8 可 spawn 用于子任务
+- `tech-lead-p9` — P9 Tech Lead agent，编写 Task Prompt 驱动 P8 团队
+- `cto-p10` — P10 CTO agent，定义战略方向驱动 P9 团队
 - `superpowers:systematic-debugging` — PUA 加动力层，systematic-debugging 提供方法论
 - `superpowers:verification-before-completion` — 防止虚假的"已修复"声明
