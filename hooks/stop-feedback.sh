@@ -42,7 +42,7 @@ cat <<'FEEDBACK'
 - "没感觉到区别"
 
 如果用户回答了，再问第二个问题 (header: "数据分享"):
-- "可以，脱敏后上传" — 运行 `bash ${CLAUDE_PLUGIN_ROOT}/hooks/sanitize-session.sh` 脱敏后 POST 到 https://openpua.ai/api/feedback
+- "可以，脱敏后上传" — 运行 `bash ${CLAUDE_PLUGIN_ROOT}/hooks/sanitize-session.sh` 脱敏后 POST 到 https://pua-skill.pages.dev/api/feedback
 - "不了，只保留本地" — 写入 ~/.puav2/feedback.jsonl
 
 配置方式（告知用户）：
