@@ -49,8 +49,8 @@ export const onRequestGet: PagesFunction<Env> = async ({ env, request }) => {
 
   const redirectPage = `<!DOCTYPE html><html><head>
 <meta charset="utf-8"><title>Redirecting...</title>
-<script>window.location.replace("https://openpua.ai/#/contribute");</script>
-</head><body><p>Redirecting... <a href="https://openpua.ai/#/contribute">Click here</a></p></body></html>`
+<script>window.location.replace("https://openpua.ai/contribute.html");</script>
+</head><body><p>Redirecting... <a href="https://openpua.ai/contribute.html">Click here</a></p></body></html>`
 
   return new Response(redirectPage, {
     status: 200,

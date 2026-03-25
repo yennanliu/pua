@@ -7,12 +7,22 @@ interface Env {
   SESSION_SECRET: string
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+// Use single onRequest handler — custom domains may not route onRequestPost correctly
+export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
   const session = await getSession(request, env.SESSION_SECRET)
   if (!session) {
     return Response.json({ error: "Unauthorized" }, { status: 401 })
   }
 
+  // GET: list user's uploads
+  if (request.method === "GET") {
+    const { results } = await env.DB.prepare(
+      "SELECT file_name, file_size, created_at FROM uploads WHERE github_id = ? ORDER BY created_at DESC LIMIT 50"
+    ).bind(session.id).all()
+    return Response.json({ uploads: results })
+  }
+
+  // POST: upload file
   const formData = await request.formData()
   const file = formData.get("file") as File | null
   const wechatId = formData.get("wechat_id") as string | null
@@ -80,18 +90,4 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }).catch(() => {})
 
   return Response.json({ ok: true, key, file_name: file.name, file_size: file.size })
-}
-
-// GET: list user's uploads
-export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
-  const session = await getSession(request, env.SESSION_SECRET)
-  if (!session) {
-    return Response.json({ error: "Unauthorized" }, { status: 401 })
-  }
-
-  const { results } = await env.DB.prepare(
-    "SELECT file_name, file_size, created_at FROM uploads WHERE github_id = ? ORDER BY created_at DESC LIMIT 50"
-  ).bind(session.id).all()
-
-  return Response.json({ uploads: results })
 }
